@@ -74,7 +74,7 @@ class Task(models.Model):
     )
 
 
-class Vacancies(models.Model):
+class Vacancy(models.Model):
     title = models.CharField(max_length=256)
     customer = models.ForeignKey(
         Customer,
@@ -127,7 +127,7 @@ class CustomerUser(models.Model):
         auto_now_add=True
     )
     vacancies = models.ForeignKey(
-        Vacancies,
+        Vacancy,
         on_delete=models.CASCADE
     )
     class Meta:
