@@ -34,9 +34,16 @@ class Customer(models.Model):
         User,
         blank=True,
         through='CustomerUser',
+        related_name='respond'
     )
     is_published = models.BooleanField(
         default=True
+    )
+    responsible = models.ForeignKey(
+        User,
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
     )
     @property
     def success(self):
@@ -54,6 +61,7 @@ class Customer(models.Model):
     registration_date = models.DateTimeField(
         auto_now_add=True
     )
+
     class Meta:
         verbose_name = 'Заказчик'
         verbose_name_plural = 'Заказчики'
