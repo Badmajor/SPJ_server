@@ -14,13 +14,15 @@ class CustomUser(AbstractUser):
         'customers.Customer',
         null=True,
         blank=True,
-        on_delete=models.SET_NULL
+        on_delete=models.SET_NULL,
+        default=None,
     )
     pr_language = models.ForeignKey(
         ProgrammingLanguage,
         null=True,
         blank=True,
-        on_delete=models.SET_NULL
+        on_delete=models.SET_NULL,
+        default=None,
     )
     def __str__(self):
         return self.username
