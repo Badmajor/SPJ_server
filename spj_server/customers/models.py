@@ -39,7 +39,7 @@ class Customer(models.Model):
     is_published = models.BooleanField(
         default=True
     )
-    responsible = models.ForeignKey(
+    manager = models.ForeignKey(
         User,
         null=True,
         blank=False,
